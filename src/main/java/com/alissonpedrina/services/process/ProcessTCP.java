@@ -35,11 +35,6 @@ public class ProcessTCP extends ProcessTemplateMethod {
             int responseCode = getResponseCode();
             processResponse.setRaw(
                     String.format("host: %s, code: %s, timeout: %s", getHost(), responseCode, elapsedTime));
-            if (responseCode != 200){
-                reportService.see(processResponse);
-                throw new TCPException("respondeCode: " + responseCode);
-
-            }
 
         } catch (Exception e) {
             reportService.see(processResponse);

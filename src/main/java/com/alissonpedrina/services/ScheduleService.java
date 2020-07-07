@@ -1,5 +1,6 @@
 package com.alissonpedrina.services;
 
+import com.alissonpedrina.core.LoggerFactory;
 import com.alissonpedrina.services.process.ProcessResponse;
 import com.alissonpedrina.services.process.ProcessTemplateMethod;
 
@@ -7,8 +8,12 @@ import java.io.IOException;
 import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.logging.Logger;
 
 public class ScheduleService {
+
+    private Logger logger = LoggerFactory.getLogger(ScheduleService.class);
+
     private final Timer timer;
     private final long milliseconds;
     private final ProcessTemplateMethod process;
@@ -30,11 +35,8 @@ public class ScheduleService {
                 try {
                     process.run(table, response);
 
-                } catch (IOException e) {
-                    e.printStackTrace();
-
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
+                } catch (InterruptedException | IOException e) {
+                    logger.severe(e.getMessage());
 
                 }
 

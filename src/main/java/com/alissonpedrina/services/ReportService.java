@@ -21,7 +21,8 @@ public class ReportService {
             "\"trace\":\"%s\"}";
 
     public String see(final ProcessResponse processResponse) {
-        return bind2Template(processResponse.getHost());
+        String result = bind2Template(processResponse.getHost());
+        return result;
 
     }
 
