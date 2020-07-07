@@ -1,6 +1,8 @@
 package com.alissonpedrina.http.server;
 
+import com.alissonpedrina.core.LoggerFactory;
 import com.alissonpedrina.services.ReportService;
+import com.alissonpedrina.services.ScheduleService;
 import com.alissonpedrina.services.process.ProcessResponse;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
@@ -11,10 +13,14 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.util.Map;
+import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class ReportHttpHandler implements HttpHandler {
+
+    private Logger logger = LoggerFactory.getLogger(ReportHttpHandler.class);
+
     private final String ASP_AT_BEGIN = "^\\'";
     private final String DOUBLE_ASP_AT_BEGIN = "^\\\"";
     private final ReportService reportService;
@@ -93,7 +99,7 @@ public class ReportHttpHandler implements HttpHandler {
             os.close();
 
         } catch (Exception e) {
-            e.printStackTrace();
+            logger.severe(e.getMessage());
             httpExchange.getRequestBody().close();
             httpExchange.sendResponseHeaders(500, response.length());
             OutputStream os = httpExchange.getResponseBody();

@@ -7,7 +7,7 @@ Docler Holding "Homework" by Alisson Pedrina ( pedrina.alisson@gmail.com )
 <p>1 - Java version 8</p>
 <p>2 - Maven 3.6.2</p> 
 
-**This application was developed and tested using a macOS Mojave 10.14.5 system.
+**This application was developed and tested using a macOS Mojave 10.14.5 and a Windows 10 S.
 
 ### Concept
 
