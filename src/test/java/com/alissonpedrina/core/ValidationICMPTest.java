@@ -33,7 +33,6 @@ public class ValidationICMPTest {
     }
 
     //TODO: enhancement the test to fit either windows and macOs platform
-    @Ignore
     @Test
     public void should_find_unknown_host() {
         ValidationICMP validationICMP = new ValidationICMP();
@@ -77,7 +76,11 @@ public class ValidationICMPTest {
                     "ping: cannot resolve xxx.cox: Unknown host";
 
         } else if (OSValidator.isWindows()) {
-            return "";
+            return "2 packets transmitted, 2 packets received, 0.0% packet loss\\n\" +\n" +
+                    "                    \"round-trip min/avg/max/stddev = 12.121/12.221/12.320/0.099 ms\\n\" +\n" +
+                    "                    \"Air:pinga alissonpedrina$ ping -c 2 xxx.cox\\n\" +\n" +
+                    "                    \"ping: cannot resolve xxx.cox: Unknown host";
+
         } else {
             return "2 packets transmitted, 2 packets received, 0.0% packet loss\n" +
                     "round-trip min/avg/max/stddev = 12.121/12.221/12.320/0.099 ms\n" +
