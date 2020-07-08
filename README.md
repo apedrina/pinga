@@ -43,12 +43,13 @@ pinga.server.port=8080
 #WARNING, SEVERE, INFO, ALL
 pinga.log.level=WARNING
 pinga.hosts=jasmin.com;oranum.com
-pinga.log.dir=/Users/alissonpedrina/Documents/log
+pinga.log.dir=C:\\log
 pinga.icmp.delay=5000
-pinga.icmp.command=ping -c 5
+pinga.icmp.command=ping -n 5
 pinga.tcp.delay=5000
-pinga.tcp.command=ping -c 5
-ping.trace.command=traceroute 
+#http, https
+pinga.tcp.type=https
+ping.trace.command=tracert
 pinga.trace.delay=5000
 ```
 
