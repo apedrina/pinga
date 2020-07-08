@@ -26,14 +26,20 @@ pinga.server.report.endpoint=/report
 pinga.server.port=8080
 #WARNING, SEVERE, INFO, ALL
 pinga.log.level=WARNING
-pinga.hosts=jasmin.com;oranum.com
+pinga.hosts=jasmin.com;oranum.com;uol.com
 pinga.log.dir=/Users/alissonpedrina/Documents/log
 pinga.icmp.delay=5000
 pinga.icmp.command=ping -c 5
-pinga.tcp.delay=5000
-pinga.tcp.command=ping -c 5
-ping.trace.command=traceroute 
+pinga.tcp.delay=500000
+#http, https
+pinga.tcp.type=https
+ping.trace.command=traceroute -q 1 -f 1
 pinga.trace.delay=5000
+####ERROR####
+pinga.error.pattern.unknown=Unknown host
+pinga.error.pattern.unreachable=Unreachable
+pinga.error.pattern.timeout=Request timed out
+
 ```
 
 Windows configuration file example:
@@ -51,6 +57,10 @@ pinga.tcp.delay=5000
 pinga.tcp.type=https
 ping.trace.command=tracert
 pinga.trace.delay=5000
+####ERROR####
+pinga.error.pattern.unknown=Unknown host
+pinga.error.pattern.unreachable=Unreachable
+pinga.error.pattern.timeout=Request timed out
 ```
 
 ### Compile
