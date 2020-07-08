@@ -1,7 +1,6 @@
 package com.alissonpedrina.services.process;
 
 import com.alissonpedrina.core.error.RouteException;
-import com.alissonpedrina.core.error.TCPException;
 import com.alissonpedrina.services.ReportService;
 
 import java.io.IOException;
@@ -32,7 +31,7 @@ public class ProcessTrace extends ProcessTemplateMethod {
         processResponse.setType("trace");
         try {
             String result = ReadStreamUtil.exec(args);
-            if (result.contains("bad value")){
+            if (result.contains("bad value")) {
                 this.reportService.see(processResponse);
                 throw new RouteException(result);
 

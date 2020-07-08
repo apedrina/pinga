@@ -12,11 +12,10 @@ import java.util.logging.Logger;
 
 public class ScheduleService {
 
-    private Logger logger = LoggerFactory.getLogger(ScheduleService.class);
-
     private final Timer timer;
     private final long milliseconds;
     private final ProcessTemplateMethod process;
+    private Logger logger = LoggerFactory.getLogger(ScheduleService.class);
     private Map<String, Boolean> table;
     private Map<String, ProcessResponse> response;
 

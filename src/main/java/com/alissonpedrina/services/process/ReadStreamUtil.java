@@ -3,7 +3,6 @@ package com.alissonpedrina.services.process;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Arrays;
 
 public final class ReadStreamUtil {
     public static String exec(String[] args) throws IOException, InterruptedException {

@@ -2,7 +2,6 @@ package com.alissonpedrina.http.server;
 
 import com.alissonpedrina.core.LoggerFactory;
 import com.alissonpedrina.services.ReportService;
-import com.alissonpedrina.services.ScheduleService;
 import com.alissonpedrina.services.process.ProcessResponse;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
@@ -19,11 +18,10 @@ import java.util.regex.Pattern;
 
 public class ReportHttpHandler implements HttpHandler {
 
-    private Logger logger = LoggerFactory.getLogger(ReportHttpHandler.class);
-
     private final String ASP_AT_BEGIN = "^\\'";
     private final String DOUBLE_ASP_AT_BEGIN = "^\\\"";
     private final ReportService reportService;
+    private Logger logger = LoggerFactory.getLogger(ReportHttpHandler.class);
 
     public ReportHttpHandler() {
         reportService = new ReportService();

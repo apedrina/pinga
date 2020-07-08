@@ -27,6 +27,12 @@ public final class Config {
     public static final String TRACE_COMMAND = "ping.trace.command";
     public static final String TRACE_DELAY = "pinga.trace.delay";
 
+    //ERROR
+    public static final String UNKNOWN_HOST = "pinga.error.pattern.unknown";
+    public static final String TIMEOUT = "pinga.error.pattern.timeout";
+    public static final String UNREACHABLE = "pinga.error.pattern.unreachable";
+
+
     public static final String CONFIG_ERROR_FORMATTER = "The config key: %s, is missing.";
 
     private static Map<String, String> properties = new HashMap<>();

@@ -2,6 +2,7 @@ package com.alissonpedrina.services.process;
 
 import com.alissonpedrina.core.error.ICMPException;
 import com.alissonpedrina.services.ReportService;
+import com.alissonpedrina.services.ValidationICMP;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -13,11 +14,13 @@ import java.util.stream.Stream;
 public class ProcessICMP extends ProcessTemplateMethod {
     private String[] args;
     private ReportService reportService;
+    private ValidationICMP validationICMP;
 
     public ProcessICMP(String[] args, String host) {
         this.args = args;
         this.setHost(host);
         this.reportService = new ReportService();
+        this.validationICMP = new ValidationICMP();
 
     }
 
@@ -48,19 +51,19 @@ public class ProcessICMP extends ProcessTemplateMethod {
 
     private void validateICMPResult(ProcessResponse processResponse) {
         String result = processResponse.getRaw();
-        if (result.toLowerCase().contains(ICMPException.UNKNOWN_HOST.toLowerCase())) {
+        if (validationICMP.unknownHost(result)) {
             reportService.see(processResponse);
-            throw new ICMPException(ICMPException.UNKNOWN_HOST);
+            throw new ICMPException(String.format(ICMPException.UNKNOWN_HOST, processResponse.getHost()));
 
         }
-        if (result.toLowerCase().contains(ICMPException.TIMEOUT.toLowerCase())) {
+        if (validationICMP.unreachable(result)) {
             reportService.see(processResponse);
-            throw new ICMPException(ICMPException.TIMEOUT);
+            throw new ICMPException(String.format(ICMPException.UNREACHABLE_HOST, processResponse.getHost()));
 
         }
-        if (result.toLowerCase().contains(ICMPException.UNREACHABLE.toLowerCase())) {
+        if (validationICMP.timedOut(result)) {
             reportService.see(processResponse);
-            throw new ICMPException(ICMPException.UNREACHABLE);
+            throw new ICMPException(String.format(ICMPException.TIMEOUT, processResponse.getHost()));
 
         }
 
