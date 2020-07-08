@@ -71,7 +71,7 @@ mvn clean install
 ### Run
 
 ```bash
-java -Dconfig.file=/pinga.properties -jar pinga-1.0.0-jar-with-dependencies.jar"
+java -Dconfig.file=<path_to>/pinga.properties -jar pinga-1.0.0-jar-with-dependencies.jar"
 ```
 
 ### Report
@@ -80,9 +80,9 @@ By configuring the "pinga.server.report.endpoint" and "pinga.server.port" we've 
 <br>
 To query all hosts just make a post to:
 ```bash
-curl -X POST http://localhost:<pinga.server.report.endpoint>/report
+curl -X POST http://localhost:<pinga.server.port><pinga.server.report.endpoint>
 ```
 To query by one host just make a post with the payload: {"host":"jasmim.com"}:
 ```bash
-curl -X POST http://localhost:<pinga.server.report.endpoint>/report
+curl -X POST http://localhost:<pinga.server.port><pinga.server.report.endpoint>
 ```
