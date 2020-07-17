@@ -1,6 +1,6 @@
 # Pinga
 
-Docler Holding "Homework" by Alisson Pedrina ( pedrina.alisson@gmail.com )
+Example of application to start and monitoring OS process using JS within JVM (Java). For instance we've process to execute a ping (icmp), traceroute and ping http/https.  by Alisson Pedrina ( pedrina.alisson@gmail.com )
 
 ### Requirements
 
