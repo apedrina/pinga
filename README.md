@@ -1,6 +1,6 @@
 # Pinga
 
-Example of application to start and monitoring OS process using JS within JVM (Java). For instance we've process to execute a ping (icmp), traceroute and ping http/https.  by Alisson Pedrina ( pedrina.alisson@gmail.com )
+Application of example about monitoring OS process using JS with JVM (Java). For instance we've process to execute a ping (icmp), traceroute and ping http/https.  by Alisson Pedrina ( pedrina.alisson@gmail.com )
 
 ### Requirements
 
@@ -71,7 +71,7 @@ mvn clean install
 ### Run
 
 ```bash
-java -Dconfig.file=<path_to>/pinga.properties -jar pinga-1.0.0-jar-with-dependencies.jar"
+java -Dconfig.file=<path_to>/pinga.properties -jar pinga-1.0.0-jar-with-dependencies.jar
 ```
 
 ### Report
